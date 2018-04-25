@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.create!(first_name: "Jack", last_name: "Pirat", password: "123")
+
+restaurant=Restaurant.create!(user_id:user.id, name: "NewRestaurant", capacity:100)
+
+10.times do
+  Review.create!(user_id:user.id, restaurant_id:restaurant.id, review: "this is a great place" )
+end
+Reservation.create!(user_id:user.id, restaurant_id:restaurant.id,)

@@ -6,6 +6,10 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.string :address
       t.integer :capacity
       t.integer :cost
+      t.text :summary
+      t.text :menu
+      t.time :opening_hour
+      t.time :closing_hour
       t.timestamps
     end
   end
