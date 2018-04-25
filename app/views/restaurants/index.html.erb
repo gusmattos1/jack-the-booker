@@ -1,6 +1,11 @@
-<% @restaurants.each do |restaurant| %>
 
-<h1><%= restaurant.name %></h1>
-<h3><%= restaurant.summary %></h3>
-<p><%= restaurant.capacity %></p>
-<% end %>
+<section class="restaurants_display">
+
+  <% @restaurants.each do |restaurant| %>
+
+  <div class="container">
+    <%= render "restaurant_individual", restaurant: restaurant %>
+  </div>
+  <% end %>
+
+</section>

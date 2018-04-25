@@ -37,6 +37,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.find(params[:id])
+    @restaurant.user_id = current_user.id
     @restaurant.name = params[:restaurant][:name]
     @restaurant.address = params[:restaurant][:address]
     @restaurant.capacity = params[:restaurant][:capacity]

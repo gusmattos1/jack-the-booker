@@ -1,0 +1,7 @@
+<%= form_for (@review , url: restaurant_reviews_path(@restaurant.id)) do |f| %>
+
+<%= f.text_area :review %>
+
+<%= f.submit %>
+
+<% end %>

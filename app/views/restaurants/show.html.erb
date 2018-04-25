@@ -1,0 +1,36 @@
+<div class="show">
+
+  <%= render "restaurant_individual", restaurant: @restaurant %>
+
+  <span class="links">
+
+      <%= link_to "Edit", edit_restaurant_path %> |
+
+      <%= link_to "Delete", restaurant_url(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete this restaurant #{ @restaurant.name }?"} %>
+  </span>
+</div>
+
+<!-- =============================== -->
+
+<div class="review">
+  <h2 class="label">Reviews:</h2>
+  <% @restaurant.reviews.each do |review| %>
+
+  <ul>
+    <li>
+      <span class="review-description"><%= review.review %></span>
+
+      <span class="time"><%= review.created_at.asctime %></span>
+
+      <br/>
+
+      <span class="links">
+        <%= link_to 'Edit', edit_restaurant_review_path(@restaurant.id,review) %> |
+        <%= link_to "Delete", restaurant_review_url(@restaurant.id, review), method: :delete, data: {confirm: "Are you sure you want to delete \"#{ review.review }\"?"} %>
+      </span>
+    </li>
+  </ul>
+
+  <% end %>
+  <%=  render 'review' ,locals:{ review: @review , restaurant_id: @restaurant.id } %>
+</div>

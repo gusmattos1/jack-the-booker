@@ -1,0 +1,14 @@
+<div class="restaurant">
+  <h1>
+  <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %> </h1>
+  <h3>Summary:</h3>
+  <h5><%= restaurant.summary %></h5>
+  <br>
+
+  <p> <strong>Capacity:</strong><%= restaurant.capacity %></p>
+  <p><%= restaurant.cost %></p>
+  <p><%= restaurant.menu %></p>
+  <p><%= restaurant.opening_hour %></p>
+  <p><%= restaurant.closing_hour %></p>
+
+</div>
