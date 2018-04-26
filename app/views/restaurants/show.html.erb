@@ -15,22 +15,46 @@
 <div class="review">
   <h2 class="label">Reviews:</h2>
   <% @restaurant.reviews.each do |review| %>
+      <ul>
+        <li>
+          <span class="review-description">
+          <%= review.review %>
+        </span>
 
-  <ul>
-    <li>
-      <span class="review-description"><%= review.review %></span>
+          <span class="time"><%= review.created_at.asctime %></span>
 
-      <span class="time"><%= review.created_at.asctime %></span>
+          <br/>
 
-      <br/>
+          <% if current_user %>
+          <span class="links">
 
-      <span class="links">
-        <%= link_to 'Edit', edit_restaurant_review_path(@restaurant.id,review) %> |
-        <%= link_to "Delete", restaurant_review_url(@restaurant.id, review), method: :delete, data: {confirm: "Are you sure you want to delete \"#{ review.review }\"?"} %>
-      </span>
-    </li>
-  </ul>
-
+            <%= link_to 'Edit', edit_restaurant_review_path(@restaurant.id,review) %> |
+            <%= link_to "Delete", restaurant_review_url(@restaurant.id, review), method: :delete, data: {confirm: "Are you sure you want to delete \"#{ review.review }\"?"} %>
+          </span>
+          <% end %>
+        </li>
+      </ul>
   <% end %>
   <%=  render 'review' ,locals:{ review: @review , restaurant_id: @restaurant.id } %>
+</div>
+
+
+<!-- =============================== -->
+
+
+<div class="reservations">
+  <% if @reservations != nil %>
+      <h2 class="label">Reservations:</h2>
+     <% @reservations.each do |reservation| %>
+
+     <span><strong>When:</strong>
+       Date: <%= reservation.date %>
+     <br>
+      Time: <%= reservation.time %>
+      <br>
+      Notes: <%= reservation.notes %>
+     </span>
+    <% end %>
+<% end %>
+  <%=  render 'reservation' ,locals:{ reservation: @reservation , restaurant_id: @restaurant.id, user_id: current_user.id } %>
 </div>
