@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
       if @reservation.save
         redirect_to restaurant_path(params[:restaurant_id])
       else
+      end
   end
 
   def edit
@@ -27,8 +28,11 @@ class ReservationsController < ApplicationController
     redirect_to restaurant_path(params[:restaurant_id])
   end
 
-  def show
+  def index
+    #@restaurant = Restaurant.find(params[:restaurant_id])
     @reservations = current_user.reservations
+    @reserved_restaurants = current_user.reserved_restaurants
+    #@locations = current_user.
   end 
 
   def destroy
@@ -40,9 +44,10 @@ class ReservationsController < ApplicationController
   end
 
   private
-  def require_ownership
-    unless 
+  # def require_ownership
+  #   unless @reservation == current_user
+  #     redirect_to restaurant_path(@restaurant)
 
-    end
-  end
+  #   end
+  # end
 end
