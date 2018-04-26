@@ -29,6 +29,7 @@ class ReservationsController < ApplicationController
 
   def show
     @reservations = current_user.reservations
+    #@locations = current_user.
   end 
 
   def destroy
