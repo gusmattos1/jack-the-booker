@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :reviews, only: [:create, :edit, :destroy, :new, :update]
-    resources :reservation, only: [:create, :edit, :destroy, :new, :update]
+    resources :reservations, only: [:create, :edit, :destroy, :new, :update]
   end
 
 

@@ -1,4 +1,4 @@
-<%= form_for @reservation , url: restaurant_reservation_index_path(@restaurant.id) do |f| %>
+<%= form_for @reservation , url: restaurant_reservations_path(@restaurant.id) do |f| %>
 
 <%= f.label :date %>
 <%= f.date_field :date %>
