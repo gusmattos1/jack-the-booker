@@ -32,5 +32,5 @@
   </ul>
 
   <% end %>
-  <%=  render 'review' ,locals:{ review: @review , restaurant_id: @restaurant.id } %>
+  <%=  render partial: 'review' ,locals:{ review: @review , restaurant_id: @restaurant.id, restaurant: @restaurant } %>
 </div>
