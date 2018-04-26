@@ -55,6 +55,8 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  
+
   def destroy
     @restaurant.destroy
 
