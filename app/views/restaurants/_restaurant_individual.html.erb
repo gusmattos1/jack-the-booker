@@ -4,7 +4,10 @@
   <h3>Summary:</h3>
   <h5><%= restaurant.summary %></h5>
   <br>
-  <%= link_to(image_tag(restaurant.picture), restaurant_path(restaurant)) %>
+<% if restaurant.picture %>
+    <%= link_to(image_tag(restaurant.picture), restaurant_path(restaurant)) %>
+
+<% end %>
 
   <p> <strong>Capacity:</strong><%= restaurant.capacity %></p>
   <p> <strong>Cost:</strong><%= restaurant.cost %></p>
