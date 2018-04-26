@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   before_action :ensure_logged_in, except: [:show, :index]
-  before_action :load_restaurant, only: [:edit, :update]
+  before_action :load_restaurant, only: [:edit, :update, :destroy]
   before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
 
   def index
@@ -71,9 +71,10 @@ class RestaurantsController < ApplicationController
   end
 
   def ensure_user_owns_restaurant
+    #restaurant = Restaurant.find(params[:id])
     unless current_user.id == @restaurant.user_id
       flash[:alert] = "Please log in"
-      redirect_to new_sessions_url
+      redirect_to restaurant_path(@restaurant)
     end
   end
 end
