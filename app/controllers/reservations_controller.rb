@@ -1,9 +1,6 @@
 class ReservationsController < ApplicationController
-<<<<<<< HEAD
-
-=======
   before_action :ensure_logged_in, only: [:create, :edit, :update, :destroy]
->>>>>>> master
+
   def create
     @reservation = Reservation.new
     @reservation.user_id = current_user.id
@@ -12,13 +9,12 @@ class ReservationsController < ApplicationController
     @reservation.time = params[:reservation][:time]
     @reservation.notes = params[:reservation][:notes]
     @reservation.number_of_people = params[:reservation][:number_of_people]
-<<<<<<< HEAD
-=======
+
       if @reservation.save
         redirect_to restaurant_path(params[:restaurant_id])
       else
       end
->>>>>>> master
+
   end
 
   def edit
@@ -48,7 +44,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
     redirect_to restaurant_url(@restaurant.id)
->>>>>>> master
+
   end
 
   private
