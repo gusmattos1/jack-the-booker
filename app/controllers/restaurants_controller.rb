@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
     @restaurant.summary = params[:restaurant][:summary]
     @restaurant.menu = params[:restaurant][:menu]
     @restaurant.opening_hour = params[:restaurant][:opening_hour]
-    @restaurant.closing_time = params[:restaurant][:cost]
+    @restaurant.closing_hour = params[:restaurant][:closing_hour]
 
     if @restaurant.save
       redirect_to restaurant_url(@restaurant.id)
