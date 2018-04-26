@@ -8,6 +8,9 @@ class ReservationsController < ApplicationController
     @reservation.time = params[:reservation][:time]
     @reservation.notes = params[:reservation][:notes]
     @reservation.number_of_people = params[:reservation][:number_of_people]
+      if @reservation.save
+        redirect_to restaurant_path(params[:restaurant_id])
+      else
   end
 
   def edit
