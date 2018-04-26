@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   before_action :ensure_logged_in, except: [:show, :index]
-  before_action :load_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :load_restaurant, only: [:show, :edit, :update]
   before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
 
   def index
@@ -58,7 +58,11 @@ class RestaurantsController < ApplicationController
     end
   end
 
+
+
   def destroy
+    @restaurant = Restaurant.find(params[:id])
+
     @restaurant.destroy
 
     redirect_to root_path

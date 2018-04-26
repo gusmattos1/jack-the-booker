@@ -39,7 +39,7 @@
 <!-- To include New review -->
 <div class="new_review">
 
-  <%=  render 'review' ,locals:{ review: @review , restaurant_id: @restaurant.id } %>
+  <%=  render partial: 'review' ,locals:{ review: @review , restaurant_id: @restaurant.id, restaurant: @restaurant } %>
 
 </div>
 
@@ -61,5 +61,6 @@
      </span>
     <% end %>
 <% end %>
-  <%=  render 'reservation' ,locals:{ reservation: @reservation , restaurant_id: @restaurant.id, user_id: current_user.id } %>
+
+  <%=  render partial: 'reservation' ,locals:{ reservation: @reservation , restaurant_id: @restaurant.id, user_id: current_user.id } %>
 </div>

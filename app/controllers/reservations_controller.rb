@@ -16,8 +16,6 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    @reservation = Reservation.new
-    @reservation.user_id = current_user.id
     @reservation.restaurant_id = params[:restaurant_id]
     @reservation.date = params[:reservation][:date]
     @reservation.time = params[:reservation][:time]
@@ -32,5 +30,10 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
     redirect_to restaurant_url(@restaurant.id)
+  end
+
+  private
+  def require_ownership
+    owner_id = params[]
   end
 end
