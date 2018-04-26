@@ -1,8 +1,9 @@
 class RestaurantsController < ApplicationController
 
-  before_action :ensure_logged_in, except: [:show, :index]
+ before_action :ensure_logged_in, except: [:show, :index]
   before_action :load_restaurant, only: [:edit, :update, :destroy, :show]
   before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
+
 
   def index
     @restaurants = Restaurant.all
@@ -30,7 +31,7 @@ class RestaurantsController < ApplicationController
     @restaurant.summary = params[:restaurant][:summary]
     @restaurant.menu = params[:restaurant][:menu]
     @restaurant.opening_hour = params[:restaurant][:opening_hour]
-    @restaurant.closing_time = params[:restaurant][:cost]
+    @restaurant.closing_hour = params[:restaurant][:closing_hour]
 
     if @restaurant.save
       redirect_to restaurant_url(@restaurant.id)
