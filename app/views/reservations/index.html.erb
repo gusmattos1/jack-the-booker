@@ -1,13 +1,19 @@
+<div class="reservationinfo">
 <% @reservations.each do |reservation| %> 
-
-	<%= reservation.date %> 
-	<%= reservation.time %> 
-	<%= reservation.notes %> 
+ 	<div>
+		<%= reservation.date %> 
+		<%= reservation.time.strftime('%m-%d') %> 
+		<%= reservation.notes %> 
+	</div>
 <% end %> 
-
+</div>
+<div class="reservationplace">
 <% @reserved_restaurants.each do |restaurant| %>
-	<%= restaurant.name %> 
-	<%= restaurant.address %> 
-	<%= restaurant.summary %>
+	<div>
+		<%= restaurant.name %> 
+		<%= restaurant.address %> 
+		<%= restaurant.summary %>
+	</div>	
 <% end %>
+</div>
 
