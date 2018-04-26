@@ -1,0 +1,17 @@
+<%= form_for @reservation , url: restaurant_reservation_index(@restaurant.id) do |f| %>
+
+<%= f.label :date %>
+<%= f.date_field :review %>
+
+<%= f.label :time %>
+<%= f.time_field :time %>
+
+<%= f.label :number_of_people %>
+<%= f.number_field :number_of_people %>
+
+<%= f.label :notes %>
+<%= f.text_area :notes %>
+
+<%= f.submit %>
+
+<% end %>

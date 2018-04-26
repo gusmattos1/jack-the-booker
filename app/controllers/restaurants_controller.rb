@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   before_action :ensure_logged_in, except: [:show, :index]
-  before_action :load_restaurant, only: [:edit, :update, :destroy]
+  before_action :load_restaurant, only: [:edit, :update, :destroy, :show]
   before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
 
   def index
@@ -16,8 +16,10 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @user = User.find(current_user.id)
     @review = Review.new
+    @reservation = Reservation.new
+    @reservations = @user.reservations.where(params[:restaurant_id])
   end
 
   def update
@@ -56,7 +58,7 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  
+
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
