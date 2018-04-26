@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
     @review.review = params[:review][:review]
     @review.rating = params[:review][:rating]
     @review.save
-    redirect_to restaurant_path(params[:product_id])
+    redirect_to restaurant_path(params[:restaurant_id])
   end
 
   def destroy

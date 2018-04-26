@@ -1,4 +1,4 @@
-<%= form_for product do |f|  %>
+<%= form_for restaurant do |f|  %>
 
     <h4><%= f.label :name %></h4>
     <h4><%= f.text_field :name %></h4>
@@ -37,7 +37,7 @@
     <% restaurant.errors.full_messages.each do |msg| %>
 
       <li><%= msg %></li>
-      
+
     <% end %>
     </ul>
   </div>

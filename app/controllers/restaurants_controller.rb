@@ -1,5 +1,9 @@
 class RestaurantsController < ApplicationController
 
+  before_action :ensure_logged_in, except: [:show, :index]
+  before_action :load_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
+
   def index
     @restaurants = Restaurant.all
   end
@@ -9,16 +13,13 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:id])
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
     @review = Review.new
   end
 
   def update
-    @restaurant = Restaurant.find(params[:id])
     @restaurant.name = params[:restaurant][:name]
     @restaurant.address = params[:restaurant][:address]
     @restaurant.capacity = params[:restaurant][:capacity]
@@ -36,8 +37,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.find(params[:id])
-    @restaurant.user_id = current_user.id
+    @restaurant.user_id = user.id
     @restaurant.name = params[:restaurant][:name]
     @restaurant.address = params[:restaurant][:address]
     @restaurant.capacity = params[:restaurant][:capacity]
@@ -55,10 +55,19 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
 
     redirect_to root_path
   end
 
+  def load_picture
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def ensure_user_owns_restaurant
+    unless current_user.id == @restaurant.user_id
+      flash[:alert] = "Please log in"
+      redirect_to new_sessions_url
+    end
+  end
 end

@@ -10,6 +10,29 @@
   </head>
 
   <body>
+    <header class="header">
+      <h1 class="logo"> <a href="/restaurants"> JackTheBooker</a></h1>
+      <nav class="navbar">
+        <a><%= link_to 'Home', root_path %></a>
+        <a><%= link_to 'Restaurants', restaurants_path %></a>
+        <a><%= link_to 'Add your restaurant', new_restaurant_path %></a>
+      </nav>
+    </header>
+
+  <section class="wrapper">
     <%= yield %>
+  </section>
+
   </body>
+
+  <p class="userinfo">
+      <% if current_user %>
+      Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+      <% else %>
+      <%= link_to "Log in", new_session_path %> or <%= link_to "Sing up", new_user_path %>
+      <% end %>
+    </p>
+    <footer>
+      <h5>Gustavo | John | Shashike  </h5>
+    </footer>
 </html>
