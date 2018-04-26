@@ -37,7 +37,8 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant.user_id = user.id
+    @restaurant = Restaurant.new
+    @restaurant.user_id = current_user.id
     @restaurant.name = params[:restaurant][:name]
     @restaurant.address = params[:restaurant][:address]
     @restaurant.capacity = params[:restaurant][:capacity]
@@ -45,7 +46,7 @@ class RestaurantsController < ApplicationController
     @restaurant.summary = params[:restaurant][:summary]
     @restaurant.menu = params[:restaurant][:menu]
     @restaurant.opening_hour = params[:restaurant][:opening_hour]
-    @restaurant.closing_time = params[:restaurant][:cost]
+    @restaurant.closing_hour = params[:restaurant][:closing_hour]
 
     if @restaurant.save
       redirect_to restaurant_url(@restaurant.id)
@@ -60,7 +61,7 @@ class RestaurantsController < ApplicationController
     redirect_to root_path
   end
 
-  def load_picture
+  def load_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
 
