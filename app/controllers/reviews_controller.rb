@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :require_ownership, only: [:edit, :update, :destroy]
+  
+before_action :require_ownership, only: [:edit, :update, :destroy]
   
   def create
    @review = Review.new
