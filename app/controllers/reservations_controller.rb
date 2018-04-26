@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-
+  before_action :ensure_logged_in, only: [:create, :edit, :update, :destroy]
   def create
     @reservation = Reservation.new
     @reservation.user_id = current_user.id
@@ -27,6 +27,10 @@ class ReservationsController < ApplicationController
     redirect_to restaurant_path(params[:restaurant_id])
   end
 
+  def show
+    @reservations = current_user.reservations
+  end 
+
   def destroy
 
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -37,6 +41,8 @@ class ReservationsController < ApplicationController
 
   private
   def require_ownership
-    owner_id = params[]
+    unless 
+
+    end
   end
 end
