@@ -9,10 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
-
   <body>
     <header class="header">
-      <h1 class="logo"> <a href="/restaurants"> JackTheBooker</a></h1>
+      <h1 class="logo">  <a href="/restaurants"><%= image_tag("/image/imagem1.png", height: '140', class: "logo") %> Jack The Booker</a></h1>
       <nav class="navbar">
         <a><%= link_to 'Home', root_path %></a>
         <a><%= link_to 'Restaurants', restaurants_path %></a>
