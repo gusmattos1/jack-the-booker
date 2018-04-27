@@ -1,0 +1,25 @@
+
+
+<% @restaurants.each do |restaurant| %>
+
+<h1>Restaurant: <%= restaurant.name %></h1>
+
+    <% if restaurant.reservations.size == 0  %>
+
+      <p>No reservations</p>
+
+    <% else %>
+
+      <% restaurant.reservations.each do |reservation| %>
+
+        <p>
+          When: <%= reservation.date.strftime("%e-%B-%y") %>
+        <br>
+          At: <%= reservation.time.strftime("%H:%M") %>
+        <br>
+          For: <%= reservation.number_of_people %> people
+        <br>
+          Notes: <%= reservation.notes %></p>
+    <% end %>
+  <% end %>
+<% end %>

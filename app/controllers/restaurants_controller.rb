@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
 
- before_action :ensure_logged_in, except: [:show, :index]
+  before_action :ensure_logged_in, except: [:show, :index]
   before_action :load_restaurant, only: [:edit, :update, :destroy, :show]
   before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
 
@@ -83,5 +83,12 @@ class RestaurantsController < ApplicationController
       flash[:alert] = "Please log in"
       redirect_to restaurant_path(@restaurant)
     end
+  end
+
+
+  def my_restaurants
+    @user = current_user
+    @restaurants = @user.restaurants
+
   end
 end

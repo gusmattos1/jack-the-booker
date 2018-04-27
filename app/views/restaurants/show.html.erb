@@ -67,6 +67,8 @@
             Time: <%= reservation.time %>
             <br>
             Notes: <%= reservation.notes %>
+            <br>
+            People: <%= reservation.number_of_people %>
            </span>
            <% if current_user.id == reservation.user_id %>
            <span class="links">
