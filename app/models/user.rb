@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-
+	validates :password, presence: true, length: {:within => 2..10}, confirmation: true
+  
   has_secure_password
 
   has_many :reservations
