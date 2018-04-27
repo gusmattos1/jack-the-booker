@@ -7,7 +7,9 @@
 <% if restaurant.picture == nil || restaurant.picture == false || restaurant.picture == ""%>
       <p>no picture found</p>
 <% else %>
-    <%= link_to(image_tag(restaurant.picture), restaurant_path(restaurant)) %>
+<div class=".img-fluid. rounded">
+    <%= link_to image_tag(restaurant.picture), restaurant_path(restaurant), :class => "rounded"%>
+  </div>
 <% end %>
 
   <p> <strong>Capacity:</strong><%= restaurant.capacity %></p>

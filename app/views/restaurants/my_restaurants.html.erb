@@ -3,14 +3,14 @@
 <% @restaurants.each do |restaurant| %>
 <h1>Restaurant: <%= restaurant.name %></h1>
 <p>Capacity: <%= restaurant.capacity %></p>
-<p>Reserved: <%= restaurant.total %></p>
+
 
     <% if restaurant.reservations.size == 0  %>
 
       <p>No reservations</p>
 
     <% else %>
-
+<p>Reserved: <%= restaurant.total %></p>
       <% restaurant.reservations.each do |reservation| %>
         <p>
           When: <%= reservation.date.strftime("%e-%B-%y") %>
