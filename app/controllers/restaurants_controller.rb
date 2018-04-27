@@ -17,10 +17,13 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
     @review = Review.new
     @reservation = Reservation.new
-    @reservations = @user.reservations.where(params[:restaurant_id])
+
+    if current_user
+      @user = User.find(current_user.id)
+      @reservations = @user.reservations.where(params[:restaurant_id])
+    end
   end
 
   def update
