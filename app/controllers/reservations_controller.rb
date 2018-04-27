@@ -13,6 +13,8 @@ class ReservationsController < ApplicationController
       if @reservation.save
         redirect_to restaurant_path(params[:restaurant_id])
       else
+        flash[:warning] = @reservation.errors.full_messages
+        redirect_to restaurants_path(params[:restaurant_id])
       end
 
   end
