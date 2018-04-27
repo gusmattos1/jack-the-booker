@@ -8,8 +8,13 @@ before_action :require_ownership, only: [:edit, :update, :destroy]
    @review.restaurant_id = params[:restaurant_id]
    @review.review = params[:review][:review]
    @review.rating = params[:review][:rating]
-   @review.save
-   redirect_to restaurant_url(params[:restaurant_id])
+   
+    if @review.save
+      redirect_to restaurant_url(params[:restaurant_id])
+    else
+      flash[:warning] = @review.errors.full_messages
+      redirect_to restaurants_path
+    end 
   end
 
   def edit
