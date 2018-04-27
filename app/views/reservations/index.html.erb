@@ -1,19 +1,22 @@
-<div class="reservationinfo">
-<% @reservations.each do |reservation| %> 
- 	<div>
-		<%= reservation.date %> 
-		<%= reservation.time %> 
-		<%= reservation.notes %> 
-	</div>
-<% end %> 
-</div>
-<div class="reservationplace">
-<% @reserved_restaurants.each do |restaurant| %>
-	<div>
-		<%= restaurant.name %> 
-		<%= restaurant.address %> 
-		<%= restaurant.summary %>
-	</div>	
-<% end %>
-</div>
+<h2> All Reservations</h2>
 
+<div class="information">
+	<div class="reservationinfo">
+	<% @reservations.each do |reservation| %> 
+	 	<div>
+			<%= reservation.date %> 
+			<%= reservation.time %> 
+			<%= reservation.notes %> 
+		</div>
+	<% end %> 
+	</div>
+	<div class="reservationplace">
+	<% @reserved_restaurants.each do |restaurant| %>
+		<div>
+			<%= restaurant.name %> 
+			<%= restaurant.address %> 
+			<%= restaurant.summary %>
+		</div>	
+	<% end %>
+	</div>
+</div>
