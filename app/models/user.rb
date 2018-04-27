@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-	validates :password, presence: true, length: {:within => 2..10}, confirmation: true
-  
+	validates :password, presence: true, length: {:within => 3..10}, confirmation: true
+  	validates :first_name, presence: true, length: {:minimum => 3}
+  	validates :last_name, presence: true, length: {:minimum => 3}
+  	validates :email, presence: true, uniqueness: true, length: {:minimum => 3}
   has_secure_password
 
   has_many :reservations
