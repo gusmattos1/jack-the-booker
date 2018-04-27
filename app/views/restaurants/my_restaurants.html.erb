@@ -1,8 +1,9 @@
 
 
 <% @restaurants.each do |restaurant| %>
-
 <h1>Restaurant: <%= restaurant.name %></h1>
+<p>Capacity: <%= restaurant.capacity %></p>
+<p>Reserved: <%= restaurant.total %></p>
 
     <% if restaurant.reservations.size == 0  %>
 
@@ -11,7 +12,6 @@
     <% else %>
 
       <% restaurant.reservations.each do |reservation| %>
-
         <p>
           When: <%= reservation.date.strftime("%e-%B-%y") %>
         <br>
@@ -19,7 +19,12 @@
         <br>
           For: <%= reservation.number_of_people %> people
         <br>
-          Notes: <%= reservation.notes %></p>
+          Notes: <%= reservation.notes %>
+        <br>
+          Name: <%= reservation.user.first_name %> <%=  reservation.user.last_name %>
+        <br>
+          Email: <%= reservation.user.email %>
+        </p>
     <% end %>
   <% end %>
 <% end %>
