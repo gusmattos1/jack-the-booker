@@ -1,3 +1,9 @@
+<% if flash[:warning]%>
+	<% flash[:warning].each do |error| %>
+		<%= error %><br/>
+	<%end%>
+<%end%>
+
 <%= form_for @review , url: restaurant_review_path(@restaurant.id,@review.id) do |f| %>
 
 <%= f.text_area :review %>

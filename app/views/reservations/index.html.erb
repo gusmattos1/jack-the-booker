@@ -2,7 +2,7 @@
 <% @reservations.each do |reservation| %> 
  	<div>
 		<%= reservation.date %> 
-		<%= reservation.time.strftime('%m-%d') %> 
+		<%= reservation.time %> 
 		<%= reservation.notes %> 
 	</div>
 <% end %> 

@@ -1,3 +1,8 @@
+<% if flash[:warning]%>
+    <% flash[:warning].each do |error| %>
+        <%= error %><br/>
+	<%end%>
+<%end%>
 
 <section class="restaurants_display">
 

@@ -59,7 +59,8 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to restaurant_url(@restaurant.id)
     else
-      redirect_to restaurant_path
+      flash[:warning] = @restaurant.errors.full_messages
+      redirect_to restaurants_path
     end
   end
 
