@@ -1,7 +1,7 @@
-<div class="restaurant">
+<div class="border border-dark rounded">
   <h1>
-  <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %> </h1>
-  <h3>Summary:</h3>
+  <%= link_to "#{restaurant.name}", restaurant_path(restaurant), :class => "rounded" %> </h1>
+  <h3 class="restaurantname">Summary:</h3>
   <h5><%= restaurant.summary %></h5>
   <br>
 <% if restaurant.picture == nil || restaurant.picture == false || restaurant.picture == ""%>
