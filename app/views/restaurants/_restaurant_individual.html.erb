@@ -6,7 +6,8 @@
   <br>
 <% if restaurant.picture %>
     <%= link_to(image_tag(restaurant.picture), restaurant_path(restaurant)) %>
-
+<% else %>
+    <p>no picture found</p>
 <% end %>
 
   <p> <strong>Capacity:</strong><%= restaurant.capacity %></p>
