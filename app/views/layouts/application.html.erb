@@ -11,13 +11,13 @@
   </head>
   <body>
     <header class="header">
-      <div class="userinfo">
+      <nav class="navbar navbar-light bg-light">
         <% if current_user %>
-            Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+            Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete, class: "navbar-brand" %>
         <% else %>
-            <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+            <%= link_to "Log in", new_session_path %> <%= link_to "Sign up", new_user_path %>
         <% end %>
-      </div>
+      </nav>
       <h1 class="logo">  <a href="/restaurants"><%= image_tag("/image/imagem1.png", height: '140', class: "logo") %> Jack The Booker</a></h1>
       <nav class="navbar">
         <a><%= link_to 'Home', root_path %></a>
@@ -35,6 +35,8 @@
 
   </body>
     <footer>
-      <h5>Gordon | Gustavo | Shashike  </h5>
+      <div class="footer-copyright text-center py-3">
+        <h5>Gordon | Gustavo | Shashike  </h5>
+      </div>
     </footer>
 </html>
