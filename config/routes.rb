@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root "restaurants#index"
+  #root "restaurants#index"
+  get '/' => "restaurants#index", as: :root
   get '/your-reservations' => 'reservations#index', as: :your_reservations
   get '/my_restaurants' => 'restaurants#my_restaurants', as: :my_restaurants
   resources :restaurants do

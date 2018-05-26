@@ -18,7 +18,7 @@
             <%= link_to "Log in", new_session_path %> <%= link_to "Sign up", new_user_path %>
         <% end %>
       </nav>
-      <h1 class="logo">  <a href="<%= root_path %>">Jack The Booker</a></h1>
+      <h1 class="logo">  <a href="<%= root_path %>"><%= image_tag("/image/imagem1.png", height: '140', class: "logo") %> Jack The Booker</a></h1>
       <nav class="navbar">
         <a><%= link_to 'Home', root_path %></a>
         <a><%= link_to 'Restaurants', restaurants_path %></a>
